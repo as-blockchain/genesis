@@ -1,5 +1,5 @@
 # Genesis
-genesis block for the as-cin
+genesis block for the as-coin
 = genesis.json
 
 # Geth
