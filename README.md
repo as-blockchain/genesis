@@ -101,7 +101,13 @@ UTC--2020-05-07T02-54-23.615577000Z--ebb2ec712929cbd81b0c640ecc2c7d960f6d5b80
 
 ## Start console
 ```
-$ geth --networkid 1004 --nat none --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal,mine" --nodiscover console
+$ geth --nat extip:<your_IP> --nodiscover console 
+$ geth --nat extip:<your_IP> --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal,mine" --nodiscover console
+```
+
+```
+> admin.addPeer("enode://deb1935c393f8b25c3f521f7facdb1bb2c74d615fa13ac593ba72b2dcefa8783d8589d3e4350bdb30728486f309cccaf56e0cd2391a1f99ff45618a056627593@172.15.0.48:30303?discport=0")
+> admin.addPeer("enode://ac29e4876c0f452b364a2da2aea52b6ea06d379e080e71cb2e98a6fc27379df2ab66c0b4972f026c7f34396584b112c966567d40512e7fb9c6d7fbf262afedaf@172.16.0.54:30303?discport=0")
 ```
 
 # Console commands
