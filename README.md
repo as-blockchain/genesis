@@ -106,7 +106,7 @@ $ geth --nat extip:<your_IP> --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsd
 ```
 
 ```
-> admin.addPeer("enode://deb1935c393f8b25c3f521f7facdb1bb2c74d615fa13ac593ba72b2dcefa8783d8589d3e4350bdb30728486f309cccaf56e0cd2391a1f99ff45618a056627593@172.15.0.48:30303?discport=0")
+> admin.addPeer("enode://deb1935c393f8b25c3f521f7facdb1bb2c74d615fa13ac593ba72b2dcefa8783d8589d3e4350bdb30728486f309cccaf56e0cd2391a1f99ff45618a056627593@172.16.0.48:30303?discport=0")
 > admin.addPeer("enode://ac29e4876c0f452b364a2da2aea52b6ea06d379e080e71cb2e98a6fc27379df2ab66c0b4972f026c7f34396584b112c966567d40512e7fb9c6d7fbf262afedaf@172.16.0.54:30303?discport=0")
 ```
 
@@ -114,7 +114,16 @@ $ geth --nat extip:<your_IP> --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsd
 
 ## check the balance
 ```
-> eth.getBalance("0xa8e6800fcDA89C0e1Aa79bF5D0596581033Fbb32")
+> eth.accounts[0]
+["0xa20c8b9c59cae6fbb5789d66679af20522d7221e"]
+```
+
+```
+> eth.getBalance(eth.accounts[0])
+
+or
+
+> eth.getBalance("0xa20c8b9c59cae6fbb5789d66679af20522d7221e")
 ```
 
 ## check the peers
