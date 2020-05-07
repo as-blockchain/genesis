@@ -45,9 +45,7 @@ INFO [05-07|15:12:38.854] Database successfully deleted            path=/Users/m
 ```
 
 ## boot node
-```
-enode://88b75f9b38c4ead46e40b0108b911ecd7ce0337eb731a00b992d85ac92f033cfecba90f9d62155ad622754bf50b7f9243145374f0a68bf923072365a91175993@172.16.0.48:0?discport=30301
-```
+we are not using boot node!
 
 ## create account (optional)
 
@@ -91,6 +89,15 @@ $ geth account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ## init chain with genesis block
 ```
 $ geth init /root/genesis.json
+INFO [05-07|15:14:19.208] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [05-07|15:14:19.220] Allocated cache and file handles         database=/Users/matthew/Library/Ethereum/geth/chaindata cache=16.00MiB handles=16
+INFO [05-07|15:14:19.256] Writing custom genesis block 
+INFO [05-07|15:14:19.260] Persisted trie from memory database      nodes=3 size=421.00B time=3.519226ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [05-07|15:14:19.260] Successfully wrote genesis state         database=chaindata hash=3b239f…b14e38
+INFO [05-07|15:14:19.260] Allocated cache and file handles         database=/Users/matthew/Library/Ethereum/geth/lightchaindata cache=16.00MiB handles=16
+INFO [05-07|15:14:19.289] Writing custom genesis block 
+INFO [05-07|15:14:19.297] Persisted trie from memory database      nodes=3 size=421.00B time=7.704739ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [05-07|15:14:19.297] Successfully wrote genesis state         database=lightchaindata hash=3b239f…b14e38
 ```
 
 ### directory structure
@@ -218,3 +225,11 @@ INFO [05-07|14:53:19.145] Setting new local account                address=0xa20
 INFO [05-07|14:53:19.146] Submitted transaction                    fullhash=0x16a9260203f3b8d351eac37b5f495e158809c6723ae6982d6bedfdaa068f5880 recipient=0x372b51B29E3CE4Bf18cC871Ee047C45ea64D57dC
 "0x16a9260203f3b8d351eac37b5f495e158809c6723ae6982d6bedfdaa068f5880"
 ```
+
+# Next
+
+https://web3js.readthedocs.io/en/v1.2.0/index.html
+
+https://ethgasstation.info/
+
+https://faucet.metamask.io/
