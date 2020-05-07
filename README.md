@@ -102,12 +102,19 @@ UTC--2020-05-07T02-54-23.615577000Z--ebb2ec712929cbd81b0c640ecc2c7d960f6d5b80
 ## Start console
 ```
 $ geth --nat extip:<your_IP> --nodiscover console 
+```
+
+### with RPC
+```
 $ geth --nat extip:<your_IP> --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal,mine" --nodiscover console
 ```
 
 ```
 > admin.addPeer("enode://deb1935c393f8b25c3f521f7facdb1bb2c74d615fa13ac593ba72b2dcefa8783d8589d3e4350bdb30728486f309cccaf56e0cd2391a1f99ff45618a056627593@172.16.0.48:30303?discport=0")
+true
+
 > admin.addPeer("enode://ac29e4876c0f452b364a2da2aea52b6ea06d379e080e71cb2e98a6fc27379df2ab66c0b4972f026c7f34396584b112c966567d40512e7fb9c6d7fbf262afedaf@172.16.0.54:30303?discport=0")
+true
 ```
 
 # Console commands
@@ -120,10 +127,20 @@ $ geth --nat extip:<your_IP> --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsd
 
 ```
 > eth.getBalance(eth.accounts[0])
+1.00000000000008e+32
 
 or
 
 > eth.getBalance("0xa20c8b9c59cae6fbb5789d66679af20522d7221e")
+1.00000000000008e+32
+> eth.getBalance("0x372b51B29E3CE4Bf18cC871Ee047C45ea64D57dC")
+1.00000000000008e+32
+```
+
+## check the block number
+```
+> eth.blockNumber
+<some number around 10>
 ```
 
 ## check the peers
@@ -135,9 +152,44 @@ or
 ## set etherbase
 ```
 > miner.setEtherbase("0xa8e6800fcDA89C0e1Aa79bF5D0596581033Fbb32")
+true
 ```
 
 ## start to mining (!! DON'T DO IT !!)
 ```
 > miner.start()
+```
+
+## Send money!
+### unlock the wallet
+```
+> personal.unlockAccount(address)
+Unlock account 0xa20c8b9c59cae6fbb5789d66679af20522d7221e
+Passphrase: 
+true
+```
+
+### signing test
+```
+> eth.signTransaction({
+    from: "0xa20c8b9c59cae6fbb5789d66679af20522d7221e",
+    gasPrice: "20000000000",
+    gas: "21000",
+    to: '0x3535353535353535353535353535353535353535',
+    value: "1000000000000000000",
+    data: "",
+    nonce: 1
+});
+```
+
+### Send!
+```
+> eth.sendTransaction({
+    from: '0xa20c8b9c59cae6fbb5789d66679af20522d7221e',
+    to: '0x372b51B29E3CE4Bf18cC871Ee047C45ea64D57dC',
+    value: '1000000000000000'
+})
+INFO [05-07|14:53:19.145] Setting new local account                address=0xa20C8B9C59CAe6FBB5789D66679AF20522d7221E
+INFO [05-07|14:53:19.146] Submitted transaction                    fullhash=0x16a9260203f3b8d351eac37b5f495e158809c6723ae6982d6bedfdaa068f5880 recipient=0x372b51B29E3CE4Bf18cC871Ee047C45ea64D57dC
+"0x16a9260203f3b8d351eac37b5f495e158809c6723ae6982d6bedfdaa068f5880"
 ```
