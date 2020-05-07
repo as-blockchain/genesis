@@ -12,7 +12,9 @@ https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum
 
 
 # Instruction
-## !! DANGER !! 
+
+## Remove old data
+### !! DANGER !! 
 
 you'll lose all the data you have if you have a ethereum account.
 
@@ -26,6 +28,20 @@ $ rm -rf ~/.ethereum
 $ rm -rf ~/Library/Ethereum
 
 $ rm -rf %APPDATA%\Ethereum
+```
+
+
+## Safe way
+```
+$ geth removedb
+INFO [05-07|15:12:27.396] Maximum peer count                       ETH=50 LES=0 total=50
+Remove full node state database (/Users/matthew/Library/Ethereum/geth/chaindata)? [y/n] y
+INFO [05-07|15:12:38.190] Database successfully deleted            path=/Users/matthew/Library/Ethereum/geth/chaindata elapsed=1.122ms
+Remove full node ancient database (/Users/matthew/Library/Ethereum/geth/chaindata/ancient)? [y/n] y
+INFO [05-07|15:12:38.539] Database successfully deleted            path=/Users/matthew/Library/Ethereum/geth/chaindata/ancient elapsed=1.173ms
+Remove light node database (/Users/matthew/Library/Ethereum/geth/lightchaindata)? [y/n] y
+INFO [05-07|15:12:38.854] Database successfully deleted            path=/Users/matthew/Library/Ethereum/geth/lightchaindata elapsed=625.383µs
+
 ```
 
 ## boot node
@@ -135,6 +151,15 @@ or
 1.00000000000008e+32
 > eth.getBalance("0x372b51B29E3CE4Bf18cC871Ee047C45ea64D57dC")
 1.00000000000008e+32
+```
+
+## convert unit
+```
+> web3.toWei(1, "ether")
+"1000000000000000000"
+
+> web3.fromWei(1, "ether")
+"0.000000000000000001"
 ```
 
 ## check the block number
