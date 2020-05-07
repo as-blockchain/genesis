@@ -1,49 +1,45 @@
-# genesis
+# Genesis
 genesis block for the as-cin
+= genesis.json
+
+# Geth
+Go-ETHereum : Official client of ethereum
+
+https://github.com/ethereum/go-ethereum
+
+## Install
+https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum
+
 
 # Instruction
-!! DANGER !!
+## !! DANGER !! 
+
+you'll lose all the data you have if you have a ethereum account.
+
 ```
 rm -rf ~/.ethereum
 ```
 
+## boot node
 ```
 enode://88b75f9b38c4ead46e40b0108b911ecd7ce0337eb731a00b992d85ac92f033cfecba90f9d62155ad622754bf50b7f9243145374f0a68bf923072365a91175993@172.16.0.48:0?discport=30301
 ```
 
-if you use a docker image
+## create account (optional)
+
 ```
-$ docker run -p 30303:30303 -p 8545:8545 -v ~/:/root -it /bin/bash
+$ geth account new
 ```
 
 ```
-$ ethereum/client-go account new
+$ geth account list
 ```
 
 ```
-$ ethereum/client-go account list
+$ geth account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-```
-$ ethereum/client-go account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
-```
-
-```
-$ ethereum/client-go init /root/genesis.json
-```
-
-```
-$ ethereum/client-go --networkid 1004 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal,mine" --nodiscover -v ~/:/root console
-```
-
-```
-$ ethereum/client-go console
-```
-
-```
-> eth.getBalance("0x68F873F4d77dF1bF8d8e4ab5dCFAb277422be896")
-```
-
+### inside the keystore 
 ```
 {
     "address": "8f0b1f309d68407aa09da69f43def2067a305723",
@@ -65,4 +61,39 @@ $ ethereum/client-go console
     },
     "id": "882317fd-3a5b-4867-b867-75cbc6b6f54d",
     "version": 3
-}```
+}
+```
+
+## init chain with genesis block
+```
+$ geth init /root/genesis.json
+```
+
+
+## Start console
+```
+$ geth --networkid 1004 --nat none --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal,mine" --nodiscover console
+```
+
+# Console commands
+
+## check the balance
+```
+> eth.getBalance("0x68F873F4d77dF1bF8d8e4ab5dCFAb277422be896")
+```
+
+## check the peers
+```
+> admin.peers
+```
+
+# Mining
+## set etherbase
+```
+> miner.setEtherbase("0x68F873F4d77dF1bF8d8e4ab5dCFAb277422be896")
+```
+
+## start to mining (!! DON'T DO IT !!)
+```
+> miner.start()
+```
