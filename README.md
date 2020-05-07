@@ -16,8 +16,16 @@ https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum
 
 you'll lose all the data you have if you have a ethereum account.
 
+* Mac: ~/Library/Ethereum
+* Linux: ~/.ethereum
+* Windows: %APPDATA%\Ethereum
+
 ```
-rm -rf ~/.ethereum
+$ rm -rf ~/.ethereum
+
+$ rm -rf ~/Library/Ethereum
+
+$ rm -rf %APPDATA%\Ethereum
 ```
 
 ## boot node
@@ -69,6 +77,27 @@ $ geth account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
 $ geth init /root/genesis.json
 ```
 
+### directory structure
+
+```
+/Ethereum/geth/chaindata:
+000001.log
+CURRENT
+LOCK
+LOG
+MANIFEST-000000
+
+/Ethereum/geth/lightchaindata:
+000001.log
+CURRENT
+LOCK
+LOG
+MANIFEST-000000
+
+/Ethereum/keystore:
+UTC--2020-05-07T02-54-23.615577000Z--ebb2ec712929cbd81b0c640ecc2c7d960f6d5b80
+```
+
 
 ## Start console
 ```
@@ -79,7 +108,7 @@ $ geth --networkid 1004 --nat none --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rp
 
 ## check the balance
 ```
-> eth.getBalance("0x68F873F4d77dF1bF8d8e4ab5dCFAb277422be896")
+> eth.getBalance("0xa8e6800fcDA89C0e1Aa79bF5D0596581033Fbb32")
 ```
 
 ## check the peers
@@ -90,7 +119,7 @@ $ geth --networkid 1004 --nat none --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rp
 # Mining
 ## set etherbase
 ```
-> miner.setEtherbase("0x68F873F4d77dF1bF8d8e4ab5dCFAb277422be896")
+> miner.setEtherbase("0xa8e6800fcDA89C0e1Aa79bF5D0596581033Fbb32")
 ```
 
 ## start to mining (!! DON'T DO IT !!)
