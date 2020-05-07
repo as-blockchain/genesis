@@ -1,5 +1,5 @@
 # Genesis
-genesis block for the as-cin
+genesis block for the as-coin
 = genesis.json
 
 # Geth
@@ -229,6 +229,11 @@ INFO [05-07|14:53:19.146] Submitted transaction                    fullhash=0x16
 # Next
 
 https://web3js.readthedocs.io/en/v1.2.0/index.html
+
+https://solidity.readthedocs.io/en/v0.6.7/
+
+
+# utils
 
 https://ethgasstation.info/
 
